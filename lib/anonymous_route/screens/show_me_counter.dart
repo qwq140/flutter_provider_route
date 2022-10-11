@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider_route/anonymous_route/state/counter.dart';
+import 'package:provider/provider.dart';
 
 class ShowMeCounter extends StatelessWidget {
   const ShowMeCounter({Key? key}) : super(key: key);
@@ -6,8 +8,9 @@ class ShowMeCounter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(title: Text('counter'),),
       body: Center(
-        child: Text('0', style: TextStyle(fontSize: 20),),
+        child: Text('${context.watch<Counter>().counter}', style: TextStyle(fontSize: 20),),
       ),
     );
   }
